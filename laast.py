@@ -10,14 +10,14 @@ from typing import Dict, List, Union
 
 api_id = 16723398 
 api_hash = '9e07dd89d2f39bfadfd59798705e4662'
-bot_token = "6785681031:AAFrVf0W4c_lwXWcMY0niqC0PGxzm18sLjo" 
+bot_token = "6815920860:AAF6M1HA3ubMB1kTMjUjTlbzE-UNX5zVQ0E" 
 
 app = Client("test", api_id=api_id, api_hash=api_hash, bot_token=bot_token)
 
 MONGO_URI = "mongodb+srv://bossnetworkk10222a:AZE1234AZE@cluster0.jvr876w.mongodb.net/?retryWrites=true&w=majority"
 MONGO_DB = "start_checker"  #* veritabanı adı
 OWNER_ID = 6587023363 # sahibin idsi
-KULLANIM_HAK_SAATI = 24 #* 24 saatlik kullanım hakkı
+KULLANIM_HAK_SAATI = 48 #* 24 saatlik kullanım hakkı
 
 #! Bu kısmı değiştirmeyin
 START_TIMES = {}
@@ -146,7 +146,7 @@ async def auth(_, m: Message):
     
     async def loud_auth(id: int) -> Union[bool, str]:
         try:
-            await app.send_message(id, "Artık yetkili oldun") # değiştirirsiniz
+            await app.send_message(id, "istifadenize icaze verildi") # değiştirirsiniz
             return True
         except Exception as e:
             print(f"Test: {e}")
@@ -170,14 +170,14 @@ async def auth(_, m: Message):
                     return
             id = int(m.command[1])
             if await db.is_authed(id):
-                await m.reply_text("Bu kişi zaten yetkili")
+                await m.reply_text("Bu xiyar onsuzda yetkilidi")
                 return
             else:
                 await db.auth(id)
                 if loud:
                     statu = await loud_auth(id)
                     if statu == True:
-                        await m.reply_text(f"{id} yetkili olarak eklendi")
+                        await m.reply_text(f"{id} yetkili olaraq eklendi")
                         return
                     else:
                         await m.reply_text(f"{id} yetkili olarak eklendi ama mesaj gönderilemedi: {statu}") 
@@ -198,7 +198,7 @@ async def auth(_, m: Message):
 async def unauth(_, m: Message):
     async def loud_unauth(id: int) -> Union[bool, str]:
         try:
-            await app.send_message(id, "Artık yetkili değilsin") # değiştirirsiniz
+            await app.send_message(id, "Artıq icaze vaxtin bitib") # değiştirirsiniz
             return True
         except Exception as e:
             print(f"Test: {e}")
@@ -274,7 +274,7 @@ async def chech_create_task():
 @app.on_message(filters.command("start") &~ UNAUTHS)
 @start_time_check
 async def start(_, m: Message):
-    await m.reply_text("start")
+    await m.reply_text(" ")
     
 
 @app.on_message(filters.command("test") &~ UNAUTHS)
