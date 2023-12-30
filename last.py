@@ -16,7 +16,7 @@ app = Client("test", api_id=api_id, api_hash=api_hash, bot_token=bot_token)
 
 MONGO_URI = "mongodb+srv://bossnetworkk10222a:AZE1234AZE@cluster0.jvr876w.mongodb.net/?retryWrites=true&w=majority"
 MONGO_DB = "start_checker"  #* veritabanı adı
-OWNER_ID = 1769015061 # sahibin idsi
+OWNER_ID = 6587023363 # sahibin idsi
 KULLANIM_HAK_SAATI = 24 #* 24 saatlik kullanım hakkı
 
 #! Bu kısmı değiştirmeyin
